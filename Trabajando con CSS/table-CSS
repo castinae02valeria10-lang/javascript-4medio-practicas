@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabla con estilo de color</title>
+  <style>
+  /* Definicion de la paleta de colores */
+
+  :root{
+    --color-primario: #4CAF50; /* Verde para el encabezado */
+    --color-texto-head: #ffffff; /* Texto blanco para el encabezado */
+    --color-fondo-par: #f2f2f2; /* Gris claro para filas alternas */
+    --color-fondo-impar: #ffffff; /* Blanco para las filas base */
+    --color-border: #dddddd; /* Gris para las lineas divisorias */
+    --color-hover: #e2f0d9; /* Verde muy claro al pasar el mouse */
+  }
+
+  /* Estilos generales de la tabla */
+  table{
+    font-family: sans-serif;
+    border-collapse: collapse; /* Une los bordes en una sola linea */
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+  }
+
+  /* Estilos para celdas y encabezados */
+  td, th{
+    border: 1px solid var(--color-border);
+    padding: 12px;
+    text-align: left;
+  }
+
+  /* Color del encabezado */
+  th{
+    background-color: var(--color-primario);
+    color: var(--color-texto-head);
+  }
+
+  /* Efecto cebra: filas pares con color diferente */
+  tr:nth-child(even){
+    background-color: var(--color-fondo-par);
+  }
+
+  /* Filas impares */
+  tr:nth-child(odd){
+    background-color: var(--color-fondo-impar);
+  }
+
+  /* Efecto visual al pasar el cursor sobre las filas del cuerpo */
+  tbody tr:hover{
+    background-color: var(--color-hover);
+    cursor: pointer;
+  }
+  </style>
+</head>
+<body>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Pais</th>
+      <th>Puntaje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hugo Pino</td>
+      <td>Chile</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <td>Josito Perez</td>
+      <td>Argentina</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>Lucia Fernandez</td>
+      <td>Peru</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <td>Argelis Manzanillo</td>
+      <td>Venezuela</td>
+      <td>85</td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

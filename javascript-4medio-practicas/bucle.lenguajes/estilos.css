@@ -1,0 +1,26 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding-bottom: 50px; /* deja espacio para que el footer fijo no tape el contenido */
+}
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #b16db9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.footer{
+    background-color: #9a45cb;
+    color: #e9a9f1;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.result{
+    font-size: 1.2em;
+    margin-top: 20px;
+}

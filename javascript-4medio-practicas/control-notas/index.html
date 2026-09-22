@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <link rel="Stylesheet" href="estilos.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Sistema de Control de Notas</title>
+
+    </head>
+    <body>
+
+        <div class="container">
+            <h2>Control de Notas del Modulo</h2>
+            <p>Ingresa una nota flotante entre 1.0 y 7.0:</p>
+            <!--El input valida de forma nativa limites y saltos decimales(step)-->
+
+            <input type="number" id="notaInput" min="1.0" max="7.0" step="0.1" placeholder="Ej: 5.5">
+            
+            <button onclick="evaluarNota()">Evaluar Nota</button>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html> 
