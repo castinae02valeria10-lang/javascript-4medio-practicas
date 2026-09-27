@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover">
+    <title>Birthday Invitation - Familia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div id="app">
+
+    <!--Sobre-->
+    <div class="stage active" id="stage-envelope" onclick="openEnvelope()">
+        <div class="envelope-wrap" id="envelope">
+            <div class="envelope-body"></div>
+            <div class="letter-peek"></div>
+            <div class="flap"></div>
+            <div class="seal">V</div>
+        </div>
+        <p class="tap-hint">Toca el sobre para abrirlo</p>
+    </div>
+
+    <!--Saludo-->
+    <div class="stage" id="stage-1">
+        <div class="card">
+            <h1 class="headline">Holii, familia 💕</h1>
+            <p class="body-text">
+                El 2 de octubre cumplo años, y como siempre, quiero pasarlo con ustedes.
+                Sé que nos vemos todo el tiempo, pero quise hacerles una invitación
+                como esta para que este cumpleaños se sienta especial. Los quiero
+                muchísimo y no sería lo mismo sin ustedes ahí.
+            </p>
+            <button class="btn" onclick="goTo('stage-2')"> Seguir</button>
+        </div>
+    </div>
+
+    <!--Fotos-->
+    <div class="stage" id="stage-2">
+        <div class="card">
+            <h1 class="headline">Un poquito de mi historia</h1>
+            <div class="polaroid-track">
+                <div class="polaroid">
+                    <div class="frame"><img src="img/bebe.jpg.jpeg" alt="foto de bebé"></div>
+                    <span class="cap">bebé</span>
+                </div>
+                <div class="polaroid">
+                    <div class="frame"><img src="img/jardin.jpg.jpeg" alt="foto de Jardin"></div>
+                    <span class="cap">Jardin</span>
+                </div>
+                <div class="polaroid">
+                    <div class="frame"><img src="img/hoy.jpg.jpeg" alt="foto de Hoy"></div>
+                    <span class="cap">Hoy</span>
+                </div>
+            </div>
+            <button class="btn" onclick="goTo('stage-3')">Seguir</button>
+            <button class="btn ghost" onclick="goTo('stage-1')">← Volver</button>
+        </div>
+    </div>
+
+    <!--Datos--->
+    <div class="stage" id="stage-3">
+        <div class="card">
+            <h1 class="headline">Los invito a celebrar conmigo</h1>
+            <div class="details-list">
+                <div class="detail-row">
+                    <div class="icon">📍</div>
+                    <div class="txt">
+                        <span class="label">Lugar</span>
+                        <a class="value" href="https://maps.app.goo.gl/AnsZ4yba3UNYiz9P6" target="_blank" rel="noopener">Oscar Moser 338</a>
+                    </div>
+                </div>
+                <div class="detail-row"><div class="icon">🕒</div><div class="txt"><span class="label">Hora</span><span class="value">18:00 PM</span></div></div>
+                <div class="detail-row"><div class="icon">📅</div><div class="txt"><span class="label">Fecha</span><span class="value">2 de octubre</span></div></div>
+            </div>
+            <button class="btn" onclick="goTo('stage-4')">Seguir</button>
+            <button class="btn ghost" onclick="goTo('stage-2')">← Volver</button>
+        </div>
+    </div>
+
+    <!--Pregunta-->
+    <div class="stage" id="stage-4">
+        <div class="card">
+            <h1 class="headline">¿Vienen a celebrar conmigo?</h1>
+            <p class="body-text">
+                Sé que van a estar ahí, pero igual quería preguntarles jaja. Los amo 💕
+            </p>
+            <div class="rsvp-actions">
+                <button class="btn" onclick="goTo('stage-confirm')">Sí, ahi estare</button>
+                <button class="btn ghost" id="btn-no">Obvio que no 🙄</button>
+            </div>
+            <p class="dodge-note" id="dodge-note"></p>
+        </div>
+    </div>
+
+    <!--Confirmación-->
+    <div class="stage" id="stage-confirm">
+        <div class="card">
+            <h1 class="headline">¿Van a venir sí o sí? 🥹</h1>
+            <p class="body-text">
+                Confírmenmelo para estar tranquila jaja
+            </p>
+            <button class="btn" onclick="celebrate()">Sí, acepto!💞</button>
+        </div>
+    </div>
+
+    <!--Final-->
+    <div class="stage" id="stage-final">
+        <div class="card">
+            <div class="final-emoji">🥳</div>
+            <h1 class="headline">¡Gracias, familia!</h1>
+            <p class="body-text">
+                Nos vemos el 2 de octubre. Los amo con todo mi corazón,
+                gracias por estar siempre.
+            </p>
+            <p class="signature">Con cariño, Vale</p>
+            <button class="btn ghost" onclick="goTo('stage-1')" style="margin-top:14px;">← Volver a leer la invitación</button>
+        </div>
+    </div>
+
+   </div>
+
+   <div id="heart-layer"></div>
+
+   <script src="script.js"></script>
+</body>
+</html>
