@@ -18,8 +18,8 @@ Solicita precio original y porcentaje de descuento mediante `prompt()`, calcula 
 
 ## Tecnologías
 - HTML5
-- CSS3
-- JavaScript (vanilla)
+- CSS
+- JavaScript 
 
 ## Autora
 Val — Estudiante de INSUCO TSA

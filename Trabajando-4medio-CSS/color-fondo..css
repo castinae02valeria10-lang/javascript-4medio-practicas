@@ -1,0 +1,59 @@
+body{
+    
+    background-color: #c078eb;
+    margin: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    color: #7a5be0;
+    }
+p{
+    color: #010f04;
+    font-size: 20px;
+}
+:root{
+    --color-primario: #c684e3; /* Verde para el encabezado */
+    --color-texto-head: #ffffff; /* Texto blanco para el encabezado */
+    --color-fondo-par: #f2f2f2; /* Gris claro para filas alternas */
+    --color-fondo-impar: #ffffff; /* Blanco para las filas base */
+    --color-border: #dddddd; /* Gris para las lineas divisorias */
+    --color-hover: #b084e3; /* Verde muy claro al pasar el mouse */
+  }
+
+  /* Estilos generales de la tabla */
+  table{
+    font-family: sans-serif;
+    border-collapse: collapse; /* Une los bordes en una sola linea */
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+  }
+
+  /* Estilos para celdas y encabezados */
+  td, th{
+    border: 1px solid var(--color-border);
+    padding: 12px;
+    text-align: left;
+  }
+
+  /* Color del encabezado */
+  th{
+    background-color: var(--color-primario);
+    color: var(--color-texto-head);
+  }
+
+  /* Efecto cebra: filas pares con color diferente */
+  tr:nth-child(even){
+    background-color: var(--color-fondo-par);
+  }
+
+  /* Filas impares */
+  tr:nth-child(odd){
+    background-color: var(--color-fondo-impar);
+  }
+
+  /* Efecto visual al pasar el cursor sobre las filas del cuerpo */
+  tbody tr:hover{
+    background-color: var(--color-hover);
+    cursor: pointer;
+  }

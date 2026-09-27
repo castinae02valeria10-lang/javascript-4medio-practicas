@@ -1,0 +1,116 @@
+:root{
+  --bg: #fbeee6;
+  --card: #fffbf7;
+  --rose: #e8aab5;
+  --rose-soft: #f3cdd3;
+  --rose-deep: #d6607c;
+  --plum: #4a2c3d;
+  --plum-soft: #7a5468;
+  --gold: #e3ae57;
+  --heart: #e14d6b;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+*{ box-sizing:border-box; }
+body{
+  margin:0; min-height:100svh;
+  font-family: sans-serif;
+  background: var(--bg);
+  display:flex; align-items:center; justify-content:center;
+  -webkit-tap-highlight-color: transparent;
+}
+#app{ width:100%; max-width:440px; padding:28px 18px; }
+
+.stage{ display:none; flex-direction:column; align-items:center; text-align:center; }
+.stage.active{ display:flex; }
+
+.card{
+  width:100%; background: var(--card);
+  border-radius: 18px; padding: 30px 24px;
+  box-shadow: 0 20px 40px -20px rgba(74,44,61,0.35);
+}
+.headline{ margin:4px 0 12px; color: var(--plum); }
+.body-text{ color: var(--plum-soft); line-height:1.6; margin-bottom:20px; }
+.signature{ color: var(--rose-deep); font-weight:600; }
+
+.btn{
+  font-weight:800; font-size:15px; border:none;
+  border-radius:999px; padding:13px 28px; cursor:pointer;
+  color:#fff; background: linear-gradient(135deg, var(--rose-deep), #c14a68);
+  box-shadow: 0 10px 20px -8px rgba(198,74,104,0.55);
+  touch-action: manipulation;
+}
+.btn.ghost{ background:transparent; color:var(--plum-soft); box-shadow:none; }
+
+/* Sobre */
+.envelope-wrap{ width:260px; height:180px; position:relative; margin:10px auto 30px; cursor:pointer; }
+.envelope-body{
+  position:absolute; inset:0;
+  background: linear-gradient(155deg, var(--rose-soft), var(--rose));
+  border-radius:10px;
+}
+.letter-peek{
+  position:absolute; left:14px; right:14px; bottom:10px; height:0;
+  background: var(--card); border-radius:6px 6px 0 0;
+  transition: height .5s ease;
+}
+.flap{
+  position:absolute; top:0; left:0; right:0; height:96px;
+  background: linear-gradient(160deg, var(--rose), var(--rose-deep));
+  clip-path: polygon(0 0, 100% 0, 50% 78%);
+  transform-origin: top center;
+  transition: transform .6s ease;
+}
+.seal{
+  position:absolute; left:50%; top:46px; width:44px; height:44px;
+  background: var(--gold); border-radius:50%; transform: translateX(-50%);
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-weight:700;
+}
+.envelope-wrap.open .flap{ transform: rotateX(180deg); }
+.envelope-wrap.open .seal{ opacity:0; }
+.envelope-wrap.open .letter-peek{ height:66px; }
+.tap-hint{ color: var(--plum-soft); font-size:14px; }
+
+/* Fotos */
+.polaroid-track{ display:flex; gap:14px; overflow-x:auto; padding:6px 4px 16px; }
+.polaroid{ flex:0 0 150px; background:#fff; padding:10px 10px 14px; border-radius:4px; box-shadow:0 8px 18px -8px rgba(74,44,61,.35); }
+.polaroid .frame{
+  width:100%; aspect-ratio:1/1; border-radius:2px;
+  background: linear-gradient(135deg, var(--rose-soft), var(--bg));
+  display:flex; align-items:center; justify-content:center; font-size:32px;
+}
+.polaroid .frame img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+.polaroid .cap{ display:block; margin-top:8px; font-size:12.5px; color:var(--plum-soft); }
+.swipe-hint{ font-size:12px; color:var(--plum-soft); margin-bottom:16px; }
+
+/* Datos */
+.details-list{ display:flex; flex-direction:column; gap:14px; margin:6px 0 24px; text-align:left; }
+.detail-row{ display:flex; align-items:center; gap:12px; border:1px solid var(--rose-soft); border-radius:12px; padding:12px 14px; }
+.detail-row .icon{ width:34px; height:34px; border-radius:50%; background:var(--rose-soft); display:flex; align-items:center; justify-content:center; }
+.detail-row .label{ font-size:11.5px; text-transform:uppercase; color:var(--plum-soft); display:block; }
+.detail-row .value{ font-weight:700; color:var(--plum); }
+
+/* RSVP */
+.rsvp-actions{ display:flex; gap:16px; justify-content:center; align-items:center; min-height:70px; }
+#btn-no{ transition: transform .25s ease; }
+.dodge-note{ margin-top:14px; font-size:13px; color:var(--plum-soft); min-height:18px; }
+
+/* Corazones */
+#heart-layer{ position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:50; }
+.heart{ position:absolute; bottom:-10%; font-size:22px; color:var(--heart); animation: floatUp linear forwards; }
+@keyframes floatUp{
+  to{ transform: translateY(-115vh) translateX(var(--dx,0px)) rotate(var(--rot,0deg)); opacity:0; }
+
+}
+.final-emoji{ font-size:42px; margin-bottom:6px; }
+
+.detail-row a.value{
+  text-decoration: underline;
+  color: var(--plum);
+}

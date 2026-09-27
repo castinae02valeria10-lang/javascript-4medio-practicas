@@ -1,0 +1,68 @@
+body{
+    
+    background-color: rgb(189, 52, 186);
+    margin: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    color: #7a5be0;
+    }
+p{
+    color: #010f04;
+    font-size: 20px;
+}
+button{
+    background-color: rgb(145, 61, 235);
+    color: rgb(227, 107, 230);
+    border: none;
+    padding: 12px, 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 35px;
+}
+button:hover{
+    font-size: 35px;
+    background-color: #92f04a;
+}
+.tarjeta{
+
+    background-color:white;
+    width:900px; /*Es el ancho de la tarjeta*/
+
+    padding:50px; /*Es el espacio interno evita que pegue a los bordes*/
+
+    border-radius:50px; /*Redondea las esquinas*/
+
+    box-shadow:0px 10px 30px rgba(0,0,0,0.15); /*Le agrega Una sombra*/
+
+}
+.contenedor-flex{ 
+    display: flex;/*Contiene algo dentro, pasan a estar una al lado de la otra*/
+
+    gap: 30px;/*Es el espacio entre las cajas*/
+
+    margin-top: 40px;
+
+}
+
+.caja{
+
+    width: 80px;
+
+    height: 60px;
+
+    background-color: #f397fd;
+
+    color: white;
+
+    font-size: 30px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 10px;
+
+}

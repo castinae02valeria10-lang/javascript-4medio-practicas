@@ -1,0 +1,11 @@
+html{
+   background-color: #f2a3ea;
+}
+body{
+    width: 800px; /*Le da el ancho*/
+    border-radius:50px; /*Redondea las esquinas*/
+    margin: 0 auto;
+    background-color: #be86e1;
+    padding: 0 20px 20px 20px;
+    border: 3px solid black;
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Menú de Navegación Animao</title>
+	<style>
+		/*---------------------------------------------
+		1.Estilos generales y configuracion de la pagina
+		--------------------------------------------------*/
+		body{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Segoe UI', system-ui,sans-serif;
+			background-color: #0f172a; /*Fondo oscuro moderno*/
+			color: #ffffff;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			min-height: 100vh;
+			
+
+		/*-------------------------------
+		2.Contenedor  del menu (NAVBAR)
+		-------------------------------*/
+		.menu-navegacion{
+			background-color: #1e293b; /*Fondo gris oscuro para el menu*/
+			padding: 10px 30px;
+			margin-top: 40px;          /*Despega el menu del techo de la pantalla*/
+			border-radius: 50px ;      /*Bordes completamente redondeados (Diseño tipo pildora)*/
+			box-shadow: 0 10px 25px rgb(0, 0, 0, 0.3); /*Sombra para dar profundidad*/
+		}
+
+		/*Lista desordenada (ul): Elimina los pintos de lista por defecto*/
+		.menu-lista{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: flex;              /*Pone los elementos en fila uno al lado del otro*/
+			gap: 15px; 					/*Separacion uniforme entre cada ocion*/
+		}
+
+		/*-----------------------------------------
+		3.Estilos de los enlaces (Estado reposo)
+		---------------------------------------------*/
+		.menu-enlace{
+			position: relative;  /*Obligatorio para posicionar la linea animada interna*/
+			display: block;
+			padding: 12px 24px;
+			color: #94a3b8;      /*Color de texto gris claro atenuado*/
+			text-decoration: none; /*Elimina el subrayado azul por defecto de los enlaces*/
+			font-size: 16px;
+			font-weight: 600px;
+			border-radius: 30px;  /*Redondea cada opcion individual*/
+
+			/*Controla la velocidad de los cambios (color de texto, fondo y tamaño)*/
+			transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+		}
+		/*Linea decorativa oculta debajo del texto*/
+		.menu-enlace::after{
+			content: '';
+			position: absolute;
+			bottom: 6px;           /*Posicion justo abajo del texto o no*/
+			left: 50%;			   /*Inicia en el centro del enlace si o no*/
+			width: 0; 			   /*Empieza con ancho cero para que no se vea*/
+			height: 3px;		   /*Grosor de la linea*/
+			background-color: #38bdf8;   /*Color azul celeste brillante*/
+
+			/*Controla la animacion de expansion de la linea*/
+			transition: width 0.3s ease, left 0.3s ease;
+		}
+
+		/*--------------------------------------------------------
+		4.Efectos al pasar el mouse (HOVER) asi se llama el efecto
+		---------------------------------------------------------*/
+		/*Cambios en el boton al posicionar el cursor*/
+		.menu-enlace:hover{
+			color: #ffffff;   /*El texto se vuelve blanco brillante*/
+			background-color: #334155;  /*Aparece un fondo gris mas claro*/
+			transform: translateY(-2px) scale(1.05);     /*Se eleva 2px y crece un 5%*/
+		}
+		/*Animacion de la linea onferior al hacer hover osea al pasar el..*/
+		.menu-enlace::hover::after{
+			width: 40px;          /*La linea se expande a un ancho fijo de 40px*/
+			left: calc(50% - 20%); /*Reajusta la posicion para que siga perfectamente centrada*/
+
+		}
+		/*Efecto sutil cuando el usuario hace click*/
+		.menu-enlace:active{
+			transform: translateY(0) scale(0.98);   /*Se hunde ligeramente*/
+		}
+		/*Seccion de contenido simulado abajo*/
+		.contenido-demo{
+			margin-top: 60px;
+			text-align: center;
+			max-width: 400px;
+
+		}
+		.contenido-demo p{
+			color: #64748b;
+			line-height: 1.6;
+
+		}
+	</style>
+</head>
+</body>
+<!--Contenedor del menu-->
+<nav class="menu-navegacion">
+	<ul class="menu-lista">
+		<li><a href="#" class="menu-enlace">Inicio</a></li>
+		<li><a href="#" class="menu-enlace">Proyectos</a></li>
+		<li><a href="#" class="menu-enlace">Servicios</a></li>
+		<li><a href="#" class="menu-enlace">Contacto</a></li>
+	</ul>
+</nav>
+<!--Contenido de relleno debajo del menu-->
+<div class="contenido-demo">
+	<h2>Pagina de Demostracion</h2>
+	<p>Pasa el cursor despacito, mas despacito .super o no??</p>
+</body>
+</html>
+
+		

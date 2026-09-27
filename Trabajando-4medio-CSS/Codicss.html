@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Texto Movil Continuo con CSS</title>
+	<style>
+		/*
+		1.configuracion general de la pagina*/
+		body{
+			margin: 0;
+			padding: 0;
+			font-family: 'Segoe UI', system-ui,sans-serif;
+			background: #0b0f19; /*Fondo oscuro moderno*/
+			color: #ffffff;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			overflow: hidden; /*Evita barras de scroll molestas en la pantalla*/
+
+		}
+		h1{
+			margin-bottom: 30px;
+			font-size: 24px;
+			color: #94a3b8;
+
+		}
+		/*
+		2.Contenedor principal del texto movil*/
+		.marquesina-contenedor{
+			width: 100%; /* Ocupa todo el ancho de la pantalla */
+			background: linear-gradient(90deg,#1e1b4b, #311042); /* Fondo degradado*/
+			padding: 15px 0; /*Espacio interno superior e inferior*/
+			overflow: hidden; /*Crucial! Oculta el texto que sale de la pantalla */
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+			border-top: 2px solid #4f46e5;
+			border-bottom: 2px solid #4f46e5;
+			display: flex; /* Alinea el contenido en linea*/
+
+		}
+		/*
+		3.Bloque que se mueve (El contenido)*/
+		.marquesina-contenido{
+			display: flex; /*Pone las frases una al lado de la otra*/
+			white-space:nowrap; /*Obliga al texto a quedarse en una sola linea*/
+			gap: 50px; /*Separacion entre cada frase repetida*/
+			padding-right: 50px; /*Mismo espacio al final para un bucle perfecto*/
+
+			/*Enlaza la animacion 'mover-texto'. Dura 20 segundos, es lineal(Misma velocidad) e infinita */
+			animation: mover-texto 20s linear infinite;
+		}
+		/*Cada frase o elemento individual dentro del texto movil*/
+		.marquesina-item{
+			font-size: 20px;
+			font-weight: bold;
+			text-transform: uppercase; /*Convierte todo a mayusculas*/
+			letter-spacing: 1px; /*Espacio entre letras*/
+		}
+		/*Resaltador para palabras clave dentro del texto*/
+		.resaltado{
+			color: #f59e0b; /*Color amarillo/naranja llamativo*/
+		}
+		/*
+		4. Interaccion (Pausar al pasar el mouse)*/
+		/*Cuando el usuario pone el cursor sobre el contenedor, la animacion se detiene*/
+		.marquesina-contenedor:hover .marquesina-contenido{
+			animation-play-state: paused;
+			cursor: pointer;
+		}
+		/*
+		5.Logica de la animacion (Keyframes)*/
+		/*	Desplaza el texto desde su posicion original (0) hasta exactamente la mitad (-50%).
+		Usamos -50% porque duplicamos el contenido en el html para que el bucle sea infinito y sin saltos visuales*/
+		@keyframes mover-texto{
+			0%{
+        transform: translate3d(0,0,0);
+    }
+
+    100%{
+        transform: translate3d(-50%,0,0);
+    }
+}
+		
+	</style>
+</head>
+<body>
+<h1> Demostracion de texto movil infinito </h1>
+<!--Contenedor externo que recorta lo que sobresale-->
+<div class="marquesina-contenedor">
+
+<!--Bloque animado. Contiene el texto original y su copia exacta-->
+<div class="marquesina-contenido">
+
+<!--Grupo 1: Texto Original-->
+<span class="marquesina-item">🔥¡Gran venta de temporada!</span>
+<span class="marquesina-item">⚡<span class="resaltado">50% De descuento en toda la tienda</span></span>
+<span class="marquesina-item">✈️Envios gratis a todo el pais </span>
+<span class="marquesina-item">💎Calidad garantizada </span>
+
+<!--Grupo 2: Copia identica para hacer el efecto infinito invisible al ojo-->
+<span class="marquesina-item">🔥¡Gran venta de temporada!</span></span>
+<span class="marquesina-item">⚡<span class="resaltado">50% De descuento en toda la tienda</span></span>
+<span class="marquesina-item">✈️Envios gratis a todo el pais </span></span>
+<span class="marquesina-item">💎Calidad garantizada </span></span>
+
+</div>
+</div>
+</body>
+</html>
+
+
