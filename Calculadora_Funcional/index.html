@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora - Insucotsa</title>
+    </head>
+    <body>
+
+        <div class="calculadora">
+            <div class="logo">Insucotsa</div>
+
+            <div class="pantalla" id="pantalla">0</div>
+
+            <div class="botones">
+                <button class="btn borrar" onclick="borrarTodo()">AC</button>
+                <button class="btn operador" onclick="agregar('/')">/</button>
+                <button class="btn operador" onclick="agregar('*')">x</button>
+                <button class="btn borrar" onclick="borrarUltimo()">←</button>
+
+                <button class="btn" onclick="agregar('7')">7</button>
+                <button class="btn" onclick="agregar('8')">8</button>
+                <button class="btn" onclick="agregar('9')">9</button>
+                <button class="btn operador" onclick="agregar('-')">-</button>
+
+                <button class="btn" onclick="agregar('4')">4</button>
+                <button class="btn" onclick="agregar('5')">5</button>
+                <button class="btn" onclick="agregar('6')">6</button>
+                <button class="btn operador" onclick="agregar('+')">+</button>
+
+                <button class="btn" onclick="agregar('1')">1</button>
+                <button class="btn" onclick="agregar('2')">2</button>
+                <button class="btn" onclick="agregar('3')">3</button>
+                <button class="btn igual" onclick="calcular()">=</button>
+
+                <button class="btn cero" onclick="agregar('0')">0</button>
+                <button class="btn" onclick="agregar('.')">.</button>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
