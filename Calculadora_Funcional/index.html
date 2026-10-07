@@ -7,38 +7,49 @@
         <title>Calculadora - Insucotsa</title>
     </head>
     <body>
-
-        <div class="calculadora">
-            <div class="logo">Insucotsa</div>
-
-            <div class="pantalla" id="pantalla">0</div>
-
-            <div class="botones">
-                <button class="btn borrar" onclick="borrarTodo()">AC</button>
-                <button class="btn operador" onclick="agregar('/')">/</button>
-                <button class="btn operador" onclick="agregar('*')">x</button>
-                <button class="btn borrar" onclick="borrarUltimo()">←</button>
-
-                <button class="btn" onclick="agregar('7')">7</button>
-                <button class="btn" onclick="agregar('8')">8</button>
-                <button class="btn" onclick="agregar('9')">9</button>
-                <button class="btn operador" onclick="agregar('-')">-</button>
-
-                <button class="btn" onclick="agregar('4')">4</button>
-                <button class="btn" onclick="agregar('5')">5</button>
-                <button class="btn" onclick="agregar('6')">6</button>
-                <button class="btn operador" onclick="agregar('+')">+</button>
-
-                <button class="btn" onclick="agregar('1')">1</button>
-                <button class="btn" onclick="agregar('2')">2</button>
-                <button class="btn" onclick="agregar('3')">3</button>
-                <button class="btn igual" onclick="calcular()">=</button>
-
-                <button class="btn cero" onclick="agregar('0')">0</button>
-                <button class="btn" onclick="agregar('.')">.</button>
-            </div>
+    <main class="calculadora">
+    <header class="encabezado">
+        <div class="escudo"><img src="logo.png" alt="Escudo INSUCO TSA" onerror="this.remove(); document.getElementById('sigla').style.display = 'block';"><span id="sigla">TSA</span></div>
+        <div>
+            <h1>INSUCO TSA</h1>
+            <p>Instituto Superior de Comercio<br>Tiburcio Saavedra Alarcón · Temuco</p>
         </div>
+    </header>
 
-        <script src="script.js"></script>
+    <section class="visor" aria-live="polite">
+        <div class="historial" id="historial"></div>
+        <div class="pantalla" id="pantalla">0</div>
+    </section>
+
+    <section class="botones" id="botones">
+        <button class="borrar" data-accion="limpiar" title="Borra todo">AC</button>
+        <button class="borrar" data-accion="atras" title="Borra el último dígito" aria-label="Borrar último">⌫</button>
+        <button class="operador" data-valor="/" aria-label="dividir">÷</button>
+        <button class="operador" data-valor="*" aria-label="multiplicar">×</button>
+
+        <button data-valor="7">7</button>
+        <button data-valor="8">8</button>
+        <button data-valor="9">9</button>
+        <button class="operador" data-valor="-" aria-label="restar">−</button>
+
+        <button data-valor="4">4</button>
+        <button data-valor="5">5</button>
+        <button data-valor="6">6</button>
+        <button class="operador" data-valor="+" aria-label="sumar">+</button>
+
+        <button data-valor="1">1</button>
+        <button data-valor="2">2</button>
+        <button data-valor="3">3</button>
+        <button class="igual" data-accion="igual" aria-label="calcular">=</button>
+
+        <button class="cero" data-valor="0">0</button>
+        <button data-valor=".">.</button>
+    </section>
+
+    <p class="ayuda">También puedes usar el teclado: números, Enter para calcular, Esc para borrar todo.</p>
+    <footer class="pie">Programación · Administración · Contabilidad · Conectividad y Redes</footer>
+</main>
+
+<script src="script.js"></script>
     </body>
 </html>
