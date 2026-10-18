@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carol Nails | Catálogo de uñas y reserva de citas</title>
+  <meta name="description" content="Esmaltado, acrílicas y pedicure. Mira los estilos, arma tu reserva y agenda tu cita con Carol Nails.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="saltar" href="#catalogo">Saltar al catálogo</a>
+
+  <header class="cabecera">
+    <a class="marca" href="#inicio" aria-label="Carol Nails, inicio">Carol Nails</a>
+    <nav aria-label="Principal">
+      <ul class="menu">
+        <li><a href="#ofertas">Ofertas</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#reserva">Reservar</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <a class="chip-reserva" href="#reserva">Mi reserva <span id="contador" aria-live="polite">0</span></a>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero" aria-labelledby="titulo-hero">
+      <div class="hero-texto">
+        <h1 id="titulo-hero">Elige el color y reserva tu hora</h1>
+        <p>Esmaltado, acrílicas y pedicure hechos con mucho cuidado. Toca un esmalte para probar cómo se ve la página con tu color.</p>
+        <a class="btn" href="#catalogo">Ver estilos y precios</a>
+      </div>
+      <div class="hero-paleta">
+        <div id="paleta" class="paleta" role="group" aria-label="Elige un color de esmalte"></div>
+        <p class="esmalte-nombre">Esmalte elegido: <strong id="esmalte-nombre">Vino</strong></p>
+      </div>
+    </section>
+
+    <section id="ofertas" class="ofertas" aria-label="Ofertas de la semana">
+      <h2>Ofertas de la semana</h2>
+      <div class="carrusel">
+        <button class="car-btn" id="car-prev" type="button" aria-label="Oferta anterior">&#8249;</button>
+        <div class="car-vista" id="car-vista" aria-live="polite"></div>
+        <button class="car-btn" id="car-next" type="button" aria-label="Oferta siguiente">&#8250;</button>
+      </div>
+      <div class="car-puntos" id="car-puntos"></div>
+    </section>
+
+    <section id="catalogo" class="catalogo" aria-labelledby="titulo-catalogo">
+      <h2 id="titulo-catalogo">Catálogo de servicios</h2>
+      <div class="filtros" role="group" aria-label="Filtrar servicios">
+        <button type="button" class="filtro activo" data-filtro="todos">Todos</button>
+        <button type="button" class="filtro" data-filtro="manos">Manos</button>
+        <button type="button" class="filtro" data-filtro="pies">Pies</button>
+      </div>
+      <div id="grilla" class="grilla"></div>
+    </section>
+
+    <section id="reserva" class="reserva" aria-labelledby="titulo-reserva">
+      <h2 id="titulo-reserva">Arma tu reserva</h2>
+      <div class="reserva-capas">
+        <aside class="carrito" aria-labelledby="titulo-carrito">
+          <h3 id="titulo-carrito">Servicios elegidos</h3>
+          <ul id="carrito-lista" class="carrito-lista"></ul>
+          <p id="carrito-vacio" class="vacio">Aún no eliges nada. Agrega servicios desde el catálogo.</p>
+          <dl class="totales">
+            <div><dt>Subtotal</dt><dd id="t-subtotal">$0</dd></div>
+            <div><dt>IVA (19%)</dt><dd id="t-iva">$0</dd></div>
+            <div class="total"><dt>Total</dt><dd id="t-total">$0</dd></div>
+          </dl>
+          <button type="button" id="btn-vaciar" class="btn-sec">Vaciar reserva</button>
+        </aside>
+
+        <form id="form-reserva" class="formulario" novalidate>
+          <h3>Tus datos</h3>
+          <label for="nombre">Nombre completo</label>
+          <input id="nombre" name="nombre" type="text" required minlength="3" maxlength="60" autocomplete="name">
+
+          <label for="telefono">Teléfono (WhatsApp)</label>
+          <input id="telefono" name="telefono" type="tel" required pattern="(\+?56)?\s?9\d{8}" placeholder="+56 9 1234 5678" autocomplete="tel">
+
+          <label for="email">Correo (opcional)</label>
+          <input id="email" name="email" type="email" autocomplete="email">
+
+          <div class="fila">
+            <div>
+              <label for="fecha">Fecha</label>
+              <input id="fecha" name="fecha" type="date" required>
+            </div>
+            <div>
+              <label for="hora">Hora</label>
+              <input id="hora" name="hora" type="time" required min="09:00" max="20:00" step="1800">
+            </div>
+          </div>
+
+          <fieldset>
+            <legend>¿Dónde te atiendes?</legend>
+            <label class="opcion"><input type="radio" name="lugar" value="local" checked> En el local</label>
+            <label class="opcion"><input type="radio" name="lugar" value="domicilio"> A domicilio</label>
+          </fieldset>
+
+          <div id="bloque-direccion" hidden>
+            <label for="direccion">Dirección del domicilio</label>
+            <input id="direccion" name="direccion" type="text" minlength="6" maxlength="120" autocomplete="street-address">
+          </div>
+
+          <label for="pago">Forma de pago</label>
+          <select id="pago" name="pago" required>
+            <option value="transferencia">Transferencia</option>
+            <option value="efectivo">Efectivo</option>
+          </select>
+
+          <label for="notas">Notas (opcional)</label>
+          <textarea id="notas" name="notas" rows="3" maxlength="300" placeholder="Largo, forma, diseño que te gusta…"></textarea>
+
+          <p id="mensaje-form" class="mensaje" role="alert" hidden></p>
+          <button type="submit" class="btn">Confirmar reserva</button>
+        </form>
+      </div>
+      <div id="confirmacion" class="confirmacion" hidden></div>
+    </section>
+  </main>
+
+  <footer id="contacto" class="pie">
+    <p><strong>Carol Nails</strong> · Instagram <a href="https://www.instagram.com/dileidydelgado" rel="noopener">@dileidydelgado</a></p>
+    <p>WhatsApp: <span id="pie-fono"></span></p>
+    <p class="chico">Proyecto académico de simulación de práctica profesional. Insuco, 4° medio, Programación.</p>
+    <p class="chico"><a href="admin.html">Panel de reservas</a></p>
+  </footer>
+
+  <script src="js/bds.js"></script>
+  <script src="js/dt.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

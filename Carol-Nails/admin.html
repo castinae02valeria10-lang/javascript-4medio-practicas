@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel de reservas | Carol Nails</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="cabecera">
+    <a class="marca" href="index.html">Carol Nails</a>
+    <a class="chip-reserva" href="index.html">Volver a la tienda</a>
+  </header>
+
+  <main class="panel">
+    <h1>Registro de reservas</h1>
+    <p id="resumen">Cargando reservas…</p>
+    <div class="tabla-wrap">
+      <table>
+        <caption class="saltar">Lista de reservas</caption>
+        <thead>
+          <tr>
+            <th scope="col">Fecha y hora</th>
+            <th scope="col">Clienta</th>
+            <th scope="col">Servicios</th>
+            <th scope="col">Lugar</th>
+            <th scope="col">Total</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acción</th>
+          </tr>
+        </thead>
+        <tbody id="filas"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="js/bd.js"></script>
+  <script src="js/dt.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

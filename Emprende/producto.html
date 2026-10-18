@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detalle del producto: características, precios por mayor y detalle, y pedido por WhatsApp.">
+  <title>Producto | MiTienda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <a href="index.html" class="logo">MiTienda</a>
+    <nav aria-label="Menú principal">
+      <a href="index.html">Inicio</a>
+      <a href="index.html#catalogo">Productos</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="pedido.html">Mi pedido <span id="contador-carrito" class="contador">0</span></a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <nav class="migas" aria-label="Ruta de navegación">
+      <a href="index.html">Inicio</a> &rsaquo;
+      <a href="index.html#catalogo">Productos</a> &rsaquo;
+      <span id="miga-nombre">Producto</span>
+    </nav>
+
+    <article id="detalle-producto" class="detalle">
+      <div id="detalle-imagen" class="tarjeta-imagen detalle-imagen"></div>
+
+      <div class="detalle-texto">
+        <h1 id="detalle-nombre">Cargando...</h1>
+        <p id="detalle-categoria" class="categoria"></p>
+        <p id="detalle-descripcion"></p>
+
+        <p id="detalle-precio" class="precio"></p>
+        <p id="detalle-mayor" class="precio-mayor"></p>
+
+        <section aria-labelledby="titulo-caracteristicas">
+          <h2 id="titulo-caracteristicas">Características</h2>
+          <ul id="detalle-caracteristicas" class="lista-check"></ul>
+        </section>
+
+        <div class="formulario compacto">
+          <label for="cantidad">Cantidad</label>
+          <input type="number" id="cantidad" min="1" max="999" step="1" value="1" required>
+        </div>
+
+        <div class="acciones">
+          <button type="button" id="btn-agregar" class="btn">Agregar al pedido</button>
+          <button type="button" id="btn-consultar" class="btn btn-secundario">Consultar por WhatsApp</button>
+          <a class="btn btn-enlace btn-secundario" href="pedido.html">Ir a mi pedido</a>
+        </div>
+      </div>
+    </article>
+
+    <p id="detalle-error" class="vacio" hidden>
+      No encontramos ese producto. <a href="index.html#catalogo">Volver al catálogo</a>
+    </p>
+  </main>
+
+  <footer class="pie">
+    <div class="pie-contenido">
+      <div>
+        <p class="pie-marca nombre-tienda">MiTienda</p>
+        <p class="pie-slogan slogan-texto"></p>
+      </div>
+      <nav class="pie-enlaces" aria-label="Enlaces del pie de página">
+        <a href="index.html#catalogo">Productos</a>
+        <a href="pedido.html">Mi pedido</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+  <script src="js/config.js"></script>
+  <script src="js/productos.js"></script>   
+  <script src="js/producto.js"></script>  
+</html>

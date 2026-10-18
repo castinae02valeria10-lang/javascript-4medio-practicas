@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Revisa tu pedido, ajusta las cantidades y envíalo por WhatsApp.">
+  <title>Mi pedido | MiTienda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <a href="index.html" class="logo">MiTienda</a>
+    <nav aria-label="Menú principal">
+      <a href="index.html">Inicio</a>
+      <a href="index.html#catalogo">Productos</a>
+      <a href="contacto.html">Contacto</a>
+      <a aria-current="page" href="pedido.html">Mi pedido <span id="contador-carrito" class="contador">0</span></a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <h1>Mi pedido</h1>
+
+    <p id="pedido-vacio" class="vacio" hidden>
+      Tu pedido está vacío. <a href="index.html#catalogo">Elige productos del catálogo</a>
+    </p>
+
+    <div id="pedido-contenido" class="pedido-grid" hidden>
+      <section aria-labelledby="titulo-productos-pedido">
+        <h2 id="titulo-productos-pedido">Productos</h2>
+        <ul id="lista-pedido" class="lista-pedido"></ul>
+      </section>
+
+      <aside class="resumen" aria-labelledby="titulo-resumen">
+        <h2 id="titulo-resumen">Resumen</h2>
+
+        <dl class="totales">
+          <div>
+            <dt>Subtotal</dt>
+            <dd id="total-neto">$0</dd>
+          </div>
+          <div>
+            <dt id="etiqueta-iva">IVA (19%)</dt>
+            <dd id="total-iva">$0</dd>
+          </div>
+          <div class="total-final">
+            <dt>Total</dt>
+            <dd id="total-final">$0</dd>
+          </div>
+        </dl>
+
+        <p class="nota">El envío y el pago se coordinan por WhatsApp.</p>
+
+        <form id="form-pedido" class="formulario">
+          <label for="pedido-nombre">Tu nombre</label>
+          <input type="text" id="pedido-nombre" name="nombre" required minlength="2" maxlength="60" autocomplete="name">
+
+          <label for="pedido-ciudad">Ciudad de envío</label>
+          <input type="text" id="pedido-ciudad" name="ciudad" required minlength="2" maxlength="60" autocomplete="address-level2">
+
+          <button type="submit" class="btn">Enviar pedido por WhatsApp</button>
+        </form>
+
+        <button type="button" id="btn-vaciar" class="btn btn-secundario">Vaciar pedido</button>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <div class="pie-contenido">
+      <div>
+        <p class="pie-marca nombre-tienda">MiTienda</p>
+        <p class="pie-slogan slogan-texto"></p>
+      </div>
+      <nav class="pie-enlaces" aria-label="Enlaces del pie de página">
+        <a href="index.html#catalogo">Productos</a>
+        <a href="pedido.html">Mi pedido</a>
+        <a href="contacto.html">Contacto</a>
+        <a id="enlace-whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        <a id="enlace-instagram" href="#" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </div>
+    <p class="pie-legal">&copy; 2026 <span class="nombre-tienda">MiTienda</span>. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/productos.js"></script>
+  <script src="js/pedido.js"></script>
+</body>
+</html>

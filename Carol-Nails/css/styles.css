@@ -1,0 +1,179 @@
+/* ============================================================
+   Carol Nails - estilos (Mobile-First)
+   Paleta: tinta, perla, oro viejo + el "esmalte" que elige la clienta
+   ============================================================ */
+:root {
+  --tinta: #1b1416;
+  --perla: #f7efe9;
+  --nude: #ead3c8;
+  --oro: #7a5c14;          /* oro oscuro: contraste AA sobre perla */
+  --oro-claro: #d8b45a;    /* oro para fondos oscuros */
+  --esmalte: #5b1a2b;
+  --esmalte-texto: #ffffff;
+  --radio: 14px;
+  --fuente-titulo: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --fuente-texto: "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  color: var(--tinta);
+  background: var(--perla);
+  line-height: 1.55;
+}
+h1, h2, h3 { font-family: var(--fuente-titulo); line-height: 1.1; margin: 0 0 .5em; }
+h1 { font-size: clamp(2.2rem, 8vw, 3.8rem); }
+h2 { font-size: clamp(1.8rem, 5vw, 2.6rem); }
+h3 { font-size: 1.35rem; }
+p { margin: 0 0 1em; max-width: 62ch; }
+a { color: var(--oro); }
+img { max-width: 100%; display: block; }
+
+:focus-visible { outline: 3px solid var(--oro); outline-offset: 3px; }
+
+.saltar { position: absolute; left: -999px; top: 0; background: var(--tinta); color: #fff; padding: .6rem 1rem; z-index: 10; }
+.saltar:focus { left: 0; }
+
+/* ---------- Cabecera ---------- */
+.cabecera {
+  position: sticky; top: 0; z-index: 5;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem;
+  padding: .7rem 1rem;
+  background: var(--tinta);
+  color: #fff;
+}
+.marca { font-family: var(--fuente-titulo); font-size: 1.6rem; font-weight: 700; color: var(--oro-claro); text-decoration: none; }
+.menu { display: none; list-style: none; margin: 0; padding: 0; gap: 1.2rem; }
+.menu a { color: #fff; text-decoration: none; }
+.menu a:hover { color: var(--oro-claro); }
+.chip-reserva {
+  background: var(--oro-claro); color: var(--tinta); font-weight: 700; text-decoration: none;
+  padding: .45rem .9rem; border-radius: 999px;
+}
+.chip-reserva span { display: inline-block; min-width: 1.4em; text-align: center; background: var(--tinta); color: #fff; border-radius: 999px; margin-left: .3rem; }
+
+/* ---------- Botones ---------- */
+.btn, .btn-sec {
+  display: inline-block; cursor: pointer; text-decoration: none; text-align: center;
+  font: 700 1rem var(--fuente-texto);
+  padding: .8rem 1.4rem; border-radius: 999px; border: 2px solid transparent;
+  background: var(--esmalte); color: var(--esmalte-texto);
+  transition: transform .2s ease, box-shadow .2s ease, background-color .3s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(27, 20, 22, .25); }
+.btn:active { transform: translateY(0); }
+.btn-sec { background: transparent; color: var(--tinta); border-color: var(--tinta); padding: .5rem 1rem; font-size: .9rem; }
+.btn-sec:hover { background: var(--tinta); color: #fff; }
+
+/* ---------- Hero con paleta de esmaltes ---------- */
+.hero {
+  display: grid; gap: 1.5rem;
+  padding: 2.5rem 1rem;
+  background: linear-gradient(160deg, var(--nude) 0 62%, var(--esmalte) 62% 100%);
+  transition: background .4s ease;
+}
+.hero-paleta { background: rgba(247, 239, 233, .92); padding: 1.2rem; border-radius: var(--radio); }
+.paleta { display: flex; flex-wrap: wrap; gap: .8rem; margin-bottom: .6rem; }
+.uña {
+  width: 46px; height: 64px; border: 3px solid transparent; cursor: pointer; padding: 0;
+  background: var(--c);
+  border-radius: 50% 50% 42% 42% / 62% 62% 38% 38%;
+  box-shadow: inset 6px 8px 0 rgba(255, 255, 255, .28), 0 4px 8px rgba(0, 0, 0, .2);
+  transition: transform .2s ease;
+}
+.uña:hover { transform: translateY(-4px); }
+.uña[aria-pressed="true"] { border-color: var(--tinta); transform: translateY(-6px) scale(1.06); }
+.esmalte-nombre { margin: 0; }
+
+/* ---------- Ofertas / carrusel ---------- */
+.ofertas, .catalogo, .reserva { padding: 2.5rem 1rem; }
+.ofertas { background: var(--tinta); color: #fff; }
+.ofertas h2 { color: var(--oro-claro); }
+.carrusel { display: flex; align-items: center; gap: .5rem; }
+.car-vista { flex: 1; min-height: 170px; }
+.slide { padding: 1.2rem; border: 1px solid var(--oro-claro); border-radius: var(--radio); animation: aparecer .4s ease; }
+.slide h3 { color: var(--oro-claro); font-size: 1.8rem; }
+.etiqueta { display: inline-block; background: var(--oro-claro); color: var(--tinta); font-weight: 700; font-size: .85rem; padding: .15rem .7rem; border-radius: 999px; margin-bottom: .6rem; }
+.car-btn { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--oro-claro); background: transparent; color: var(--oro-claro); font-size: 1.6rem; cursor: pointer; transition: background .2s ease; }
+.car-btn:hover { background: var(--oro-claro); color: var(--tinta); }
+.car-puntos { display: flex; justify-content: center; gap: .6rem; margin-top: 1rem; }
+.punto { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--oro-claro); background: transparent; padding: 0; cursor: pointer; }
+.punto.activo { background: var(--oro-claro); }
+@keyframes aparecer { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---------- Catálogo ---------- */
+.filtros { display: flex; gap: .6rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+.filtro { cursor: pointer; font: 600 .95rem var(--fuente-texto); padding: .45rem 1.1rem; border-radius: 999px; border: 2px solid var(--tinta); background: transparent; color: var(--tinta); }
+.filtro.activo { background: var(--tinta); color: #fff; }
+.grilla { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.tarjeta { background: #fff; border-radius: var(--radio); overflow: hidden; box-shadow: 0 2px 10px rgba(27, 20, 22, .12); display: flex; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease; }
+.tarjeta:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(27, 20, 22, .18); }
+.tarjeta-foto { height: 150px; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.45), transparent 45%), var(--c); }
+.tarjeta-foto img { width: 100%; height: 100%; object-fit: cover; }
+.tarjeta-cuerpo { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
+.tarjeta-cuerpo p { font-size: .95rem; }
+.meta { font-weight: 700; color: var(--oro); margin-top: auto; }
+.btn-comprar { width: 100%; }
+
+/* ---------- Reserva ---------- */
+.reserva { background: var(--nude); }
+.reserva-capas { display: grid; gap: 1.5rem; }
+.carrito, .formulario { background: #fff; padding: 1.2rem; border-radius: var(--radio); }
+.carrito-lista { list-style: none; margin: 0 0 1rem; padding: 0; }
+.carrito-item { display: grid; grid-template-columns: 1fr auto; gap: .3rem .8rem; padding: .7rem 0; border-bottom: 1px solid var(--nude); align-items: center; }
+.ci-nombre { font-weight: 700; }
+.ci-precio { text-align: right; }
+.ci-ctrl { display: inline-flex; align-items: center; gap: .6rem; }
+.ci-ctrl button { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--tinta); background: #fff; cursor: pointer; font-size: 1.1rem; }
+.ci-eliminar { justify-self: end; background: none; border: none; color: #9b1c31; text-decoration: underline; cursor: pointer; font: inherit; }
+.vacio { color: #5a4a4e; }
+.totales { margin: 0 0 1rem; }
+.totales div { display: flex; justify-content: space-between; padding: .2rem 0; }
+.totales dt, .totales dd { margin: 0; }
+.totales .total { font-weight: 700; font-size: 1.25rem; border-top: 2px solid var(--tinta); margin-top: .4rem; padding-top: .5rem; }
+
+.formulario label { display: block; font-weight: 700; margin: .9rem 0 .25rem; }
+.formulario input[type="text"], .formulario input[type="tel"], .formulario input[type="email"],
+.formulario input[type="date"], .formulario input[type="time"], .formulario select, .formulario textarea {
+  width: 100%; font: inherit; padding: .65rem .8rem; border: 2px solid #b9a7a1; border-radius: 10px; background: #fff; color: var(--tinta);
+}
+.formulario input:focus, .formulario select:focus, .formulario textarea:focus { border-color: var(--esmalte); outline: none; box-shadow: 0 0 0 3px rgba(122, 92, 20, .35); }
+.formulario input:user-invalid, .formulario textarea:user-invalid { border-color: #9b1c31; }
+.fila { display: grid; gap: .8rem; grid-template-columns: 1fr 1fr; }
+fieldset { border: 2px solid #b9a7a1; border-radius: 10px; margin: 1rem 0 0; padding: .4rem .8rem .8rem; }
+legend { font-weight: 700; padding: 0 .4rem; }
+.formulario .opcion { display: inline-flex; align-items: center; gap: .4rem; margin: .4rem 1rem 0 0; font-weight: 600; }
+.mensaje { color: #9b1c31; font-weight: 700; margin-top: 1rem; }
+.formulario .btn { width: 100%; margin-top: 1rem; }
+.confirmacion { margin-top: 1.5rem; background: var(--tinta); color: #fff; padding: 1.2rem; border-radius: var(--radio); }
+.confirmacion h3 { color: var(--oro-claro); }
+
+/* ---------- Pie ---------- */
+.pie { background: var(--tinta); color: #fff; padding: 2rem 1rem; }
+.pie a { color: var(--oro-claro); }
+.pie p { margin: 0 0 .5rem; }
+.chico { font-size: .85rem; opacity: .85; }
+
+/* ---------- Tablas del panel ---------- */
+.panel { padding: 1.5rem 1rem; }
+.tabla-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; background: #fff; }
+th, td { text-align: left; padding: .6rem .7rem; border-bottom: 1px solid var(--nude); vertical-align: top; }
+th { background: var(--tinta); color: #fff; }
+
+/* ---------- Pantallas más grandes ---------- */
+@media (min-width: 768px) {
+  .menu { display: flex; }
+  .cabecera, .hero, .ofertas, .catalogo, .reserva, .pie, .panel { padding-left: 4vw; padding-right: 4vw; }
+  .hero { grid-template-columns: 1.2fr 1fr; align-items: center; padding-top: 4rem; padding-bottom: 4rem; }
+  .reserva-capas { grid-template-columns: 1fr 1.2fr; align-items: start; }
+  .carrito { position: sticky; top: 5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+td { white-space: pre-line; }
